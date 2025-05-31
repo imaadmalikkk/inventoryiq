@@ -22,7 +22,7 @@ const routes = [
   {
     label: "Products",
     icon: Package,
-    href: "/products",
+    href: "/dashboard/products",
     color: "text-violet-500",
   },
   {

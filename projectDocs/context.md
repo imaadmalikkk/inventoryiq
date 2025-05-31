@@ -14,7 +14,7 @@ This file provides a **living reference** for the Cursor AI editor and any contr
 To provide a simple, intuitive inventory and client management dashboard for small businesses that distribute physical products (e.g., food, drink, electronics) to clients like corner shops, restaurants, or wholesalers.
 
 **Audience:**  
-This is an educational build designed for developers in the Builder’s Lab community who are learning how to build and deploy full-stack applications.
+This is an educational build designed for developers in the Builder's Lab community who are learning how to build and deploy full-stack applications.
 
 ---
 
@@ -22,23 +22,35 @@ This is an educational build designed for developers in the Builder’s Lab comm
 
 | Feature              | Description                                                | Code Reference |
 |----------------------|------------------------------------------------------------|----------------|
-| Authentication       | User sign up / sign in using Clerk                         | `/auth/`       |
-| Dashboard View       | Summary of total stock, clients, recent logs               | `/dashboard`   |
-| Product Management   | CRUD for products, including quantity in/out, SKU          | `/products`    |
-| Client Management    | CRUD for clients, contact info, view history               | `/clients`     |
-| Invoicing            | Generate invoices from stock → PDF                         | `/invoices`    |
-| CSV Export           | Export products, clients, and invoices to CSV              | `/export`      |
+| Dashboard Layout     | Sidebar navigation with main content area                  | `/dashboard/layout.tsx` |
+| Dashboard Overview   | Metrics cards, recent activity, quick actions              | `/dashboard/page.tsx` |
+| Products Management | Full CRUD operations for products with filtering and sorting | `/dashboard/products/page.tsx` |
+| Mock Data Structure  | Types and sample data for products, clients, transactions | `/types/index.ts`, `/dashboard/mock-data.ts` |
+
+### Products Page Features
+- Table view with pagination (20 items per page)
+- Search by name, SKU, or category
+- Filter by product type (Fruits, Drinks, Electronics, Other)
+- Sort by name (A-Z, Z-A) and price (Low-High, High-Low)
+- Bulk delete functionality
+- CSV export for selected products
+- Add/Edit product forms with validation
+- Responsive design with modern UI components
 
 ---
 
 ## 🧪 Features To Implement
 
-- [ ] Invoice preview/download as PDF (using `react-pdf` or `pdf-lib`)
-- [ ] Empty state UIs for products, clients, and invoices
-- [ ] Dashboard graphs (basic line or bar chart for movement)
-- [ ] Global Toasts for feedback (success/error messages)
-- [ ] Stock history timeline or audit trail
-- [ ] Responsive mobile UI tweaks
+- [ ] Authentication with Clerk
+- [ ] Clients CRUD operations
+- [ ] Invoice generation
+- [ ] Stock movement tracking
+- [ ] Mobile responsive adjustments
+- [ ] Empty state UIs
+- [ ] API integration for products
+- [ ] Real-time updates
+- [ ] Image upload for products
+- [ ] Batch import from CSV
 
 ---
 
@@ -46,7 +58,7 @@ This is an educational build designed for developers in the Builder’s Lab comm
 
 | Date       | Bug Description                                       | Related File        |
 |------------|--------------------------------------------------------|---------------------|
-| (TBD)      | Example: Invoices showing incorrect totals             | `/components/invoice-form.tsx` |
+| N/A        | No bugs reported yet                                    | N/A                |
 
 ---
 
@@ -54,23 +66,20 @@ This is an educational build designed for developers in the Builder’s Lab comm
 
 | Date       | Bug Description                                       | Fix Summary & Code Snippet |
 |------------|--------------------------------------------------------|----------------------------|
-| (TBD)      | Example: Stock quantity not updating on removal        | Fixed with state mutation in `updateProductStock` fn. |
-
-**Example Fix:**
-```ts
-function updateProductStock(id: string, delta: number) {
-  setProducts(prev => prev.map(p => p.id === id ? { ...p, quantity: p.quantity + delta } : p));
-}
-```
+| N/A        | No bugs fixed yet                                       | N/A                       |
 
 ---
 
 ## 🔁 General Notes
 
-- All UI is built with ShadCN components.
-- Clerk is used for auth — no team/role support.
-- File structure follows feature-based layout: `/products`, `/clients`, `/invoices`, etc.
-- CSV export will use a simple helper (`json2csv` or manual mapping).
+- Dashboard UI implemented with ShadCN components
+- Using client-side rendering for interactive components
+- Following feature-based layout structure
+- Mock data structured to match expected API responses
+- Quick actions implemented as cards for better UX
+- Products page uses modern form validation with Zod
+- Table component supports bulk actions and CSV export
+- All components follow accessibility best practices
 
 ---
 

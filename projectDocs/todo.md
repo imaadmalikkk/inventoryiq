@@ -6,20 +6,21 @@ This file contains a **chronological step-by-step guide** to implementing Invent
 
 ## 🎨 1. UI Design (Prioritise Visual Structure)
 
-### 1.1 Design Landing Page
-- [ ] Create basic layout using Tailwind (hero, subtext, CTA)
-- [ ] Add navigation bar (logo + sign in link)
-- [ ] Create call-to-action that links to `/sign-up`
-- [ ] Ensure fully responsive layout
+### 1.1 Design Landing Page ✅
+- [x] Create basic layout using Tailwind (hero, subtext, CTA)
+- [x] Add navigation bar (logo + sign in link)
+- [x] Create call-to-action that links to `/sign-up`
+- [x] Ensure fully responsive layout
 
-### 1.2 Design Dashboard Shell
-- [ ] Set up sidebar navigation (Dashboard, Products, Clients, Invoices, Export)
-- [ ] Add top navbar with user info and theme toggle
-- [ ] Use ShadCN layout primitives (`Card`, `Tabs`, etc.)
+### 1.2 Design Dashboard Shell ✅
+- [x] Set up sidebar navigation (Dashboard, Products, Clients, Invoices, Settings)
+- [x] Add top navbar with user info and theme toggle
+- [x] Use ShadCN layout primitives (`Card`, `Tabs`, etc.)
 
-### 1.3 Design Dashboard View
-- [ ] Create stat cards (products in stock, total clients, items out)
-- [ ] Add recent activity log (last 5 transactions)
+### 1.3 Design Dashboard View ✅
+- [x] Create stat cards (products in stock, total clients, items out)
+- [x] Add recent activity log (last 5 transactions)
+- [x] Add quick action cards for common tasks
 
 ### 1.4 Design Products Section
 - [ ] Table view for products
@@ -55,41 +56,42 @@ This file contains a **chronological step-by-step guide** to implementing Invent
 
 ## 🧱 3. Core Layout & Routing
 
-### 3.1 Set Up App Shell
-- [ ] Create base layout component with sidebar + navbar
-- [ ] Integrate Clerk user context
+### 3.1 Set Up App Shell ✅
+- [x] Create base layout component with sidebar + navbar
+- [x] Set up responsive layout
+- [x] Implement navigation
 
-### 3.2 Define Routes
-- [ ] `/dashboard`
+### 3.2 Define Routes ✅
+- [x] `/dashboard`
 - [ ] `/products`, `/products/new`, `/products/[id]`
 - [ ] `/clients`, `/clients/new`, `/clients/[id]`
 - [ ] `/invoices`, `/invoices/new`, `/invoices/[id]`
-- [ ] `/export`
+- [ ] `/settings`
 
 ---
 
-## 🧩 4. Feature Implementation (One Section at a Time)
+## 🧩 4. Feature Implementation
 
 ### 4.1 Product Management
-- [ ] Create product table in DB (id, name, sku, quantityIn, quantityOut)
+- [ ] Create product table in DB
 - [ ] Implement add/edit/delete product UI
 - [ ] Add "stock in" and "stock out" modal
-- [ ] Compute running stock balance dynamically
+- [ ] Compute running stock balance
 
 ### 4.2 Client Management
-- [ ] Create client table (id, name, contact, notes)
+- [ ] Create client table
 - [ ] Implement add/edit/delete clients
-- [ ] Display stock sent to client (from transactions table)
+- [ ] Display stock sent to client
 
 ### 4.3 Inventory Movement Tracking
-- [ ] Create `transactions` table (productId, type: 'in' | 'out', quantity, clientId, date)
+- [ ] Create `transactions` table
 - [ ] Write logs to table on stock actions
 - [ ] Show logs in product detail & dashboard
 
 ### 4.4 Invoicing
-- [ ] Create invoice table (id, clientId, items: [productId, qty, price])
+- [ ] Create invoice table
 - [ ] Invoice creation form with validation
-- [ ] PDF generation using `@react-pdf/renderer`
+- [ ] PDF generation
 
 ### 4.5 CSV Export
 - [ ] Implement export functions for each table (products, clients, invoices)
@@ -102,7 +104,7 @@ This file contains a **chronological step-by-step guide** to implementing Invent
 - [ ] Handle empty states for all pages
 - [ ] Implement basic error boundaries or toasts
 - [ ] Test mobile responsiveness
-- [ ] Test invalid input / fail cases (e.g. negative stock)
+- [ ] Test invalid input / fail cases
 
 ---
 
@@ -111,8 +113,8 @@ This file contains a **chronological step-by-step guide** to implementing Invent
 - [ ] Final UI polish and spacing cleanup
 - [ ] Add light/dark toggle
 - [ ] Run final QA and user test flow
-- [ ] Deploy with Vercel (or hosting of your choice)
+- [ ] Deploy with Vercel
 
 ---
 
-_This to-do list should be updated as new tasks arise or features evolve. Stick to the order for optimal development flow._
+_This to-do list should be updated as new tasks arise or features evolve._

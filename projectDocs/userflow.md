@@ -22,48 +22,55 @@ Landing Page → Sign Up / Sign In → Dashboard
    │     ├─> Create Invoice
    │     ├─> View All Invoices
    │     └─> Download/View PDF
-   └─> Export
-         ├─> Export Products CSV
-         ├─> Export Clients CSV
-         └─> Export Invoices CSV
+   └─> Settings
+         └─> User Preferences
 ```
 
 ---
 
-## 🏠 Landing Page
+## 🏠 Landing Page (Implemented)
 **Route:** `/`
 - Hero section with app description
-- CTA button → “Get Started” → `/sign-up`
+- CTA button → "Get Started" → `/sign-up`
 - Optional: login link if user already has account
 
 ---
 
-## 🔐 Auth Flow (Clerk)
+## 🔐 Auth Flow (Pending)
 **Routes:** `/sign-up`, `/sign-in`
-- Handled via Clerk’s UI components
+- To be handled via Clerk's UI components
 - On success → redirect to `/dashboard`
 
 ---
 
-## 📊 Dashboard
+## 📊 Dashboard (Implemented)
 **Route:** `/dashboard`
-- Welcome message / user name
-- Metrics Cards: total products, clients, items distributed
-- Recent Activity Table (last 5 transactions)
-- Navigation sidebar to:
+- Sidebar navigation with:
+  - Dashboard
   - Products
   - Clients
   - Invoices
-  - Export
+  - Settings
+- Main content:
+  - Metric Cards:
+    - Total Products
+    - Total Clients
+    - Total Stock
+  - Recent Activity Table (last 5 transactions)
+  - Quick Action Cards:
+    - Add Stock
+    - New Client
+    - Create Invoice
+    - Export Data
 
 ---
 
-## 📦 Product Flow
+## 📦 Product Flow (Pending)
 ### View Products
 **Route:** `/products`
 - Table view of all products
 - Search bar, filter (optional)
-- Button: “Add New Product” → opens modal or navigates to `/products/new`
+- Button: "Add New Product" → opens modal or navigates to `/products/new`
 
 ### Add Product
 **Route:** `/products/new`
@@ -80,11 +87,11 @@ Landing Page → Sign Up / Sign In → Dashboard
 
 ---
 
-## 👥 Client Flow
+## 👥 Client Flow (Pending)
 ### View Clients
 **Route:** `/clients`
 - Table of all clients
-- Button: “Add New Client” → `/clients/new`
+- Button: "Add New Client" → `/clients/new`
 
 ### Add Client
 **Route:** `/clients/new`
@@ -96,15 +103,15 @@ Landing Page → Sign Up / Sign In → Dashboard
 - View info + distribution history
 - Buttons:
   - Send stock to this client (opens stock-out modal)
-  - View past invoices (optional)
+  - View past invoices
 
 ---
 
-## 🧾 Invoice Flow
+## 🧾 Invoice Flow (Pending)
 ### View Invoices
 **Route:** `/invoices`
 - List of past invoices
-- Button: “Create Invoice” → `/invoices/new`
+- Button: "Create Invoice" → `/invoices/new`
 
 ### Create Invoice
 **Route:** `/invoices/new`
@@ -112,7 +119,7 @@ Landing Page → Sign Up / Sign In → Dashboard
   - Select client
   - Add product lines (product + quantity)
   - Auto-fill price (or manually enter)
-- Button: “Generate Invoice”
+- Button: "Generate Invoice"
 - On submit:
   - Save to DB
   - Generate PDF
@@ -124,29 +131,32 @@ Landing Page → Sign Up / Sign In → Dashboard
 
 ---
 
-## 📁 Export Flow
-**Route:** `/export`
-- Buttons:
-  - Export Products CSV
-  - Export Clients CSV
-  - Export Invoices CSV
-- Each button downloads a respective file
+## ⚙️ Settings Flow (Pending)
+**Route:** `/settings`
+- User preferences
+- Account settings
+- Notification preferences (future)
 
 ---
 
-## ⚙️ Other Scenarios
+## 🎯 Current Implementation Status
 
-### Logout
-- Via Clerk `<UserButton />` in navbar
+✅ **Completed:**
+- Landing page layout and design
+- Dashboard layout with sidebar
+- Dashboard metrics and activity view
+- Quick action cards
 
-### Empty States
-- Show placeholders or prompts when:
-  - No products/clients/invoices yet
-  - No activity logs on dashboard
+🚧 **In Progress:**
+- Authentication setup
+- Product management
+- Client management
 
-### Error States
-- 404 Page → `/404`
-- Generic error fallback UI for failed network requests
+📝 **Pending:**
+- Invoice generation
+- Settings page
+- PDF generation
+- Data export
 
 ---
 

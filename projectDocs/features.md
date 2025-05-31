@@ -11,6 +11,8 @@ This is the source of truth for feature planning and development.
 ---
 
 ## 🔐 Authentication (via Clerk)
+**Status:** Pending
+
 **What:** Allow users to sign up, log in, and log out.
 
 **Why:** Restricts access to a single user's private inventory data.
@@ -27,27 +29,30 @@ This is the source of truth for feature planning and development.
 ---
 
 ## 📊 Dashboard Overview
+**Status:** Implemented ✅
+
 **What:** Homepage showing a summary of total stock, client count, recent actions
 
 **Why:** Provides at-a-glance visibility of business health.
 
 **Implementation:**
-- ShadCN `Card` components for metrics
-- Latest activity as table or list (e.g., “Distributed 100 units to X”)
-- Tailwind grid layout with responsiveness
-
-**Data Points:**
-- Total products in stock
-- Total clients
-- Recent transactions
-- Upcoming low-stock warnings (optional)
+- Metric cards showing key stats:
+  - Total Products
+  - Total Clients
+  - Total Stock
+- Recent activity table with last 5 transactions
+- Quick action cards for common tasks
+- Responsive layout with ShadCN components
 
 **Packages:**
-- None needed initially (charts optional)
+- ShadCN UI components
+- Lucide React icons
 
 ---
 
 ## 📦 Product Management
+**Status:** Pending
+
 **What:** CRUD system for adding and editing products
 
 **Why:** Core function of app — defines what is being tracked
@@ -64,6 +69,8 @@ This is the source of truth for feature planning and development.
 ---
 
 ## 👥 Client Management
+**Status:** Pending
+
 **What:** CRUD for clients (e.g., restaurants, shops)
 
 **Why:** Enables associating outgoing stock with customers
@@ -79,12 +86,14 @@ This is the source of truth for feature planning and development.
 ---
 
 ## 🔁 Inventory In/Out Flow
+**Status:** Pending
+
 **What:** Log stock coming in and stock going out
 
 **Why:** Allows tracking movement of inventory over time
 
 **Implementation:**
-- Use `+` button for “Add Stock” and “Send Stock”
+- Use `+` button for "Add Stock" and "Send Stock"
 - Both write to a `transactions` table with type = in/out
 - Associate each with a product (and optionally a client for out)
 - View logs per product
@@ -104,6 +113,8 @@ This is the source of truth for feature planning and development.
 ---
 
 ## 🧾 Invoicing
+**Status:** Pending
+
 **What:** Generate simple invoices when stock is sent out
 
 **Why:** Useful for client records, documentation, and education
@@ -119,13 +130,15 @@ This is the source of truth for feature planning and development.
 
 ---
 
-## 📁 CSV Export
+## 📁 Data Export
+**Status:** Pending
+
 **What:** Download client/product/invoice data as CSV
 
 **Why:** Enables offline analysis, reporting, or backups
 
 **Implementation:**
-- Simple button on each table view: “Export CSV”
+- Quick action card for export
 - Map JSON → CSV string
 - Use `FileSaver` or anchor download
 
@@ -135,6 +148,8 @@ This is the source of truth for feature planning and development.
 ---
 
 ## 🌙 Dark Mode Support
+**Status:** Pending
+
 **What:** Light/dark theme toggle
 
 **Why:** Improves usability in low-light environments
@@ -149,6 +164,8 @@ This is the source of truth for feature planning and development.
 ---
 
 ## 📱 Mobile Responsiveness
+**Status:** Partially Implemented ✅
+
 **What:** Optimise UI for smaller screens
 
 **Why:** Enables warehouse, shop-floor, or mobile use cases
@@ -156,6 +173,7 @@ This is the source of truth for feature planning and development.
 **Implementation:**
 - Tailwind responsive classes
 - Collapse sidebar into hamburger menu on small screens
+- Stack cards vertically on mobile
 
 **Packages:**
 - None
