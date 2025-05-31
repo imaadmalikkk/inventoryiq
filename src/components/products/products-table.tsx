@@ -115,7 +115,7 @@ export function ProductsTable({
                 <TableCell>{product.name}</TableCell>
                 <TableCell>{product.sku}</TableCell>
                 <TableCell>{product.category}</TableCell>
-                <TableCell>{formatCurrency(product.price)}</TableCell>
+                <TableCell>£{product.price.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</TableCell>
                 <TableCell>{product.stock}</TableCell>
                 <TableCell className="text-right">
                   <Button

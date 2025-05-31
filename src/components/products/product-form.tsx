@@ -21,11 +21,12 @@ import {
 import { Product, ProductCategory } from "@/types/product";
 import { Textarea } from "@/components/ui/textarea";
 import { ControllerRenderProps, FieldValues } from "react-hook-form";
+import { useState } from "react";
 
 const productSchema = z.object({
   name: z.string().min(1, "Name is required"),
   sku: z.string().min(1, "SKU is required"),
-  category: z.enum(["Fruits", "Drinks", "Electronics", "Other"] as const),
+  category: z.enum(["Food", "Drink", "Electronics", "Textiles", "Machinery", "Other"] as const),
   price: z.number().min(0, "Price must be positive"),
   stock: z.number().int().min(0, "Stock must be positive"),
   description: z.string().optional(),
@@ -55,6 +56,8 @@ export function ProductForm({
       description: "",
     },
   });
+
+  const [displayValue, setDisplayValue] = useState(`${initialData?.price || ''}`);
 
   return (
     <Form {...form}>
@@ -103,9 +106,11 @@ export function ProductForm({
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="Fruits">Fruits</SelectItem>
-                  <SelectItem value="Drinks">Drinks</SelectItem>
+                  <SelectItem value="Food">Food</SelectItem>
+                  <SelectItem value="Drink">Drink</SelectItem>
                   <SelectItem value="Electronics">Electronics</SelectItem>
+                  <SelectItem value="Textiles">Textiles</SelectItem>
+                  <SelectItem value="Machinery">Machinery</SelectItem>
                   <SelectItem value="Other">Other</SelectItem>
                 </SelectContent>
               </Select>
@@ -117,20 +122,41 @@ export function ProductForm({
         <FormField
           control={form.control}
           name="price"
-          render={({ field }: { field: ControllerRenderProps<ProductFormValues, "price"> }) => (
-            <FormItem>
-              <FormLabel>Price</FormLabel>
-              <FormControl>
-                <Input
-                  type="number"
-                  step="0.01"
-                  {...field}
-                  onChange={(e) => field.onChange(parseFloat(e.target.value))}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
+          render={({ field }: { field: ControllerRenderProps<ProductFormValues, "price"> }) => {
+            return (
+              <FormItem>
+                <FormLabel>Price</FormLabel>
+                <FormControl>
+                  <div className="relative">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2">£</span>
+                    <Input
+                      type="text"
+                      className="pl-7"
+                      value={displayValue}
+                      onChange={(e) => {
+                        const input = e.target.value.replace(/[^0-9.]/g, '');
+                        
+                        // Allow typing and basic validation
+                        if (input === '' || /^\d*\.?\d{0,2}$/.test(input)) {
+                          setDisplayValue(input);
+                          const numericValue = parseFloat(input) || 0;
+                          field.onChange(numericValue);
+                        }
+                      }}
+                      onBlur={() => {
+                        // Format on blur
+                        const numericValue = parseFloat(displayValue) || 0;
+                        setDisplayValue(numericValue.toFixed(2));
+                        field.onChange(numericValue);
+                      }}
+                      placeholder="0.00"
+                    />
+                  </div>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            );
+          }}
         />
 
         <FormField

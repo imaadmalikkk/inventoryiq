@@ -61,15 +61,16 @@ export default function ProductsPage() {
   };
 
   const handleExport = () => {
-    // TODO: Implement CSV export
-    const csv = products.map(p => [
+    const headers = ['Name', 'SKU', 'Category', 'Price', 'Stock'];
+    const rows = products.map(p => [
       p.name,
       p.sku,
       p.category,
-      p.price.toString(),
+      `£${p.price.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
       p.stock.toString(),
-    ].join(',')).join('\n');
-
+    ]);
+    
+    const csv = [headers, ...rows].map(row => row.join(',')).join('\n');
     const blob = new Blob([csv], { type: 'text/csv' });
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -193,7 +194,7 @@ export default function ProductsPage() {
       />
 
       <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="sm:max-w-[600px] duration-300 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]">
           <DialogHeader>
             <DialogTitle>Add New Product</DialogTitle>
           </DialogHeader>
