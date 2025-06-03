@@ -51,37 +51,74 @@ This is the source of truth for feature planning and development.
 ---
 
 ## 📦 Product Management
-**Status:** Pending
+**Status:** Implemented ✅
 
 **What:** CRUD system for adding and editing products
 
 **Why:** Core function of app — defines what is being tracked
 
 **Implementation:**
-- Add/edit/delete forms (ShadCN `Dialog` + `Form`)
-- Fields: name, SKU, quantity in, quantity out, unit (optional)
-- Table view with filters/sorting
-- Calculate running total as: `quantityIn - quantityOut`
+- Add/edit/delete forms with ShadCN `Dialog` + `Form`
+- Fields:
+  - Name (required)
+  - SKU (required)
+  - Category (Food, Drink, Electronics, Textiles, Machinery, Other)
+  - Price (GBP with live formatting and decimal support)
+  - Stock quantity
+  - Description (optional)
+- Table view with:
+  - Multi-select functionality
+  - Bulk delete
+  - CSV export with headers
+  - Pagination (20 items/page)
+  - Search by name/SKU/category
+  - Category filtering
+  - Sort by name/price
+- Smooth dialog animations for better UX
+- All monetary values in GBP format
 
 **Packages:**
-- Optional: `zod` for form validation
+- `zod` for form validation
+- `react-hook-form` for form handling
+- ShadcnUI components for UI
+- Lucide React icons
 
 ---
 
 ## 👥 Client Management
-**Status:** Pending
+**Status:** Implemented ✅
 
 **What:** CRUD for clients (e.g., restaurants, shops)
 
 **Why:** Enables associating outgoing stock with customers
 
 **Implementation:**
-- Form: name, contact info, notes
-- Table view with search/sort
-- Client detail view → recent stock sent
+- Full CRUD operations with form validation
+- Table view with:
+  - Multi-select functionality
+  - Bulk actions (delete)
+  - Search functionality
+  - Pagination
+  - State persistence
+- Client forms with fields:
+  - Name (required)
+  - Email (required, validated)
+  - Phone (optional)
+  - Address (optional)
+  - Notes (optional)
+- Accessibility features:
+  - ARIA labels
+  - Keyboard navigation
+  - Focus management
+- Error handling and validation
+- Responsive design
+- State management with proper error boundaries
 
 **Packages:**
-- Optional: `react-hook-form` or `zod`
+- ShadCN UI components for consistent design
+- React Hook Form for form handling
+- Zod for validation
+- Lucide React icons
 
 ---
 

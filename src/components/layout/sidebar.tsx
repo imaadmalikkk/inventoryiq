@@ -28,19 +28,19 @@ const routes = [
   {
     label: "Clients",
     icon: Users,
-    href: "/clients",
+    href: "/dashboard/clients",
     color: "text-pink-700",
   },
   {
     label: "Invoices",
     icon: FileText,
-    href: "/invoices",
+    href: "/dashboard/invoices",
     color: "text-orange-700",
   },
   {
     label: "Settings",
     icon: Settings,
-    href: "/settings",
+    href: "/dashboard/settings",
     color: "text-gray-700",
   }
 ]
