@@ -147,14 +147,23 @@ export default function ProductsPage() {
               <DropdownMenuItem onClick={() => handleCategoryFilter('All')}>
                 All Products
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => handleCategoryFilter('Fruits')}>
-                Fruits
+              <DropdownMenuItem onClick={() => handleCategoryFilter('Food')}>
+                Food
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => handleCategoryFilter('Drinks')}>
-                Drinks
+              <DropdownMenuItem onClick={() => handleCategoryFilter('Drink')}>
+                Drink
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => handleCategoryFilter('Electronics')}>
                 Electronics
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => handleCategoryFilter('Textiles')}>
+                Textiles
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => handleCategoryFilter('Machinery')}>
+                Machinery
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => handleCategoryFilter('Other')}>
+                Other
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

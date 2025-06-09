@@ -43,6 +43,7 @@ This is the source of truth for feature planning and development.
 - Recent activity table with last 5 transactions
 - Quick action cards for common tasks
 - Responsive layout with ShadCN components
+- **Updated 2024-03-21:** Streamlined sidebar navigation (removed Settings)
 
 **Packages:**
 - ShadCN UI components
@@ -200,21 +201,33 @@ This is the source of truth for feature planning and development.
 
 ---
 
-## 📱 Mobile Responsiveness
-**Status:** Partially Implemented ✅
+## ⚙️ Settings Management
+**Status:** Removed ❌
 
-**What:** Optimise UI for smaller screens
+**What:** User preferences and application settings
 
-**Why:** Enables warehouse, shop-floor, or mobile use cases
+**Why:** Originally planned for user configuration options
 
 **Implementation:**
-- Tailwind responsive classes
-- Collapse sidebar into hamburger menu on small screens
-- Stack cards vertically on mobile
+- **REMOVED 2024-03-21:** Settings section removed from sidebar navigation
+- Settings functionality may be re-implemented in future if needed
+- User-specific settings can be handled through auth provider (Clerk)
 
-**Packages:**
-- None
+**Note:** Settings was removed to streamline navigation and focus on core inventory management features.
 
 ---
 
-_This file should be referenced by the team and updated when new features are discussed or shipped._
+## 📝 Recent Feature Changes
+
+**2024-03-21:**
+- **Dashboard Navigation Cleanup:** Removed Settings section from sidebar
+- **Simplified User Flow:** Streamlined navigation to focus on core features:
+  - Dashboard
+  - Products  
+  - Clients
+  - Invoices
+- **Code Cleanup:** Removed unused Settings import and route from sidebar component
+
+---
+
+_This features document should be updated whenever features are added, removed, or significantly modified._

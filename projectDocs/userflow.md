@@ -18,12 +18,10 @@ Landing Page → Sign Up / Sign In → Dashboard
    │     ├─> Add Client
    │     ├─> Client Detail View
    │     └─> View Sent Inventory
-   ├─> Invoices
-   │     ├─> Create Invoice
-   │     ├─> View All Invoices
-   │     └─> Download/View PDF
-   └─> Settings
-         └─> User Preferences
+   └─> Invoices
+         ├─> Create Invoice
+         ├─> View All Invoices
+         └─> Download/View PDF
 ```
 
 ---
@@ -50,7 +48,6 @@ Landing Page → Sign Up / Sign In → Dashboard
   - Products
   - Clients
   - Invoices
-  - Settings
 - Main content:
   - Metric Cards:
     - Total Products
@@ -131,14 +128,6 @@ Landing Page → Sign Up / Sign In → Dashboard
 
 ---
 
-## ⚙️ Settings Flow (Pending)
-**Route:** `/settings`
-- User preferences
-- Account settings
-- Notification preferences (future)
-
----
-
 ## 🎯 Current Implementation Status
 
 ✅ **Completed:**
@@ -146,6 +135,7 @@ Landing Page → Sign Up / Sign In → Dashboard
 - Dashboard layout with sidebar
 - Dashboard metrics and activity view
 - Quick action cards
+- **Cleaned sidebar navigation** - Removed settings section (2024-03-21)
 
 🚧 **In Progress:**
 - Authentication setup
@@ -154,9 +144,17 @@ Landing Page → Sign Up / Sign In → Dashboard
 
 📝 **Pending:**
 - Invoice generation
-- Settings page
 - PDF generation
 - Data export
+
+---
+
+## 📝 Recent Changes
+
+**2024-03-21:**
+- Removed Settings navigation from sidebar
+- Simplified navigation structure to focus on core inventory management features
+- Settings functionality can be re-added in future if needed
 
 ---
 

@@ -13,9 +13,10 @@ This file contains a **chronological step-by-step guide** to implementing Invent
 - [x] Ensure fully responsive layout
 
 ### 1.2 Design Dashboard Shell ✅
-- [x] Set up sidebar navigation (Dashboard, Products, Clients, Invoices, Settings)
+- [x] Set up sidebar navigation (Dashboard, Products, Clients, Invoices)
 - [x] Add top navbar with user info and theme toggle
 - [x] Use ShadCN layout primitives (`Card`, `Tabs`, etc.)
+- [x] **UPDATED 2024-03-21:** Removed Settings from sidebar navigation
 
 ### 1.3 Design Dashboard View ✅
 - [x] Create stat cards (products in stock, total clients, items out)
@@ -60,13 +61,14 @@ This file contains a **chronological step-by-step guide** to implementing Invent
 - [x] Create base layout component with sidebar + navbar
 - [x] Set up responsive layout
 - [x] Implement navigation
+- [x] **UPDATED 2024-03-21:** Streamlined sidebar by removing Settings section
 
 ### 3.2 Define Routes ✅
 - [x] `/dashboard`
 - [ ] `/products`, `/products/new`, `/products/[id]`
 - [ ] `/clients`, `/clients/new`, `/clients/[id]`
 - [ ] `/invoices`, `/invoices/new`, `/invoices/[id]`
-- [ ] `/settings`
+- [x] ~~`/settings`~~ **REMOVED 2024-03-21:** Settings route removed from navigation
 
 ---
 
@@ -114,6 +116,15 @@ This file contains a **chronological step-by-step guide** to implementing Invent
 - [ ] Add light/dark toggle
 - [ ] Run final QA and user test flow
 - [ ] Deploy with Vercel
+
+---
+
+## 📝 Recent Changes
+
+**2024-03-21:**
+- Removed Settings icon and route from sidebar navigation
+- Simplified navigation to focus on core inventory management features
+- Cleaned up imports in sidebar component
 
 ---
 
