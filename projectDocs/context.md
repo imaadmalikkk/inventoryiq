@@ -102,6 +102,7 @@ This is an educational build designed for developers in the Builder's Lab commun
 | 2024-03-21 | Infinite update loop in ClientsTable                   | Fixed useEffect dependency array and state change check in onStateChange handler |
 | 2024-03-21 | Build Error: ProductCategory type mismatch in products page | Fixed dropdown menu items to use correct ProductCategory values ('Food', 'Drink' instead of 'Fruits', 'Drinks') and added missing categories (Textiles, Machinery, Other) |
 | 2024-03-21 | Build Error: Missing @tabler/icons-react dependency | Removed unused components that imported from @tabler/icons-react (app-sidebar.tsx, nav-*.tsx, section-cards.tsx, data-table.tsx) since they weren't being used in the application |
+| 2024-03-21 | Build Error: row.table property doesn't exist in TanStack Table | Fixed clients table by moving column definitions inside component function and directly accessing callback functions instead of row.table.options.meta |
 
 ---
 
