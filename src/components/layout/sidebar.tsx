@@ -8,8 +8,7 @@ import {
   LayoutDashboard,
   Package,
   Users,
-  FileText,
-  Settings
+  FileText
 } from "lucide-react"
 
 const routes = [
@@ -36,12 +35,6 @@ const routes = [
     icon: FileText,
     href: "/dashboard/invoices",
     color: "text-orange-700",
-  },
-  {
-    label: "Settings",
-    icon: Settings,
-    href: "/dashboard/settings",
-    color: "text-gray-700",
   }
 ]
 
