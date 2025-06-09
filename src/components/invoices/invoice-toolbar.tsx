@@ -1,13 +1,17 @@
+"use client"
+
 import { Cross2Icon, PlusCircledIcon, TrashIcon } from "@radix-ui/react-icons"
 import { Table } from "@tanstack/react-table"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { DataTableViewOptions } from "@/components/data-table-view-options"
 import { DataTableFacetedFilter } from "@/components/data-table-faceted-filter"
+import type { Invoice } from "@/types/invoice"
 
-interface DataTableToolbarProps<TData> {
-  table: Table<TData>
-  setIsNewInvoiceOpen: (open: boolean) => void
+interface InvoiceToolbarProps {
+  table: Table<Invoice>
+  searchQuery: string
+  onSearchChange: (value: string) => void
 }
 
 const statuses = [
@@ -17,10 +21,11 @@ const statuses = [
   { label: "Overdue", value: "overdue" },
 ]
 
-export function InvoiceToolbar<TData>({
+export function InvoiceToolbar({
   table,
-  setIsNewInvoiceOpen,
-}: DataTableToolbarProps<TData>) {
+  searchQuery,
+  onSearchChange,
+}: InvoiceToolbarProps) {
   const isFiltered = table.getState().columnFilters.length > 0
 
   return (
@@ -28,10 +33,8 @@ export function InvoiceToolbar<TData>({
       <div className="flex flex-1 items-center space-x-2">
         <Input
           placeholder="Search invoices..."
-          value={(table.getColumn("invoiceNumber")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("invoiceNumber")?.setFilterValue(event.target.value)
-          }
+          value={searchQuery}
+          onChange={(event) => onSearchChange(event.target.value)}
           className="h-8 w-[150px] lg:w-[250px]"
         />
         {table.getColumn("status") && (
@@ -53,27 +56,21 @@ export function InvoiceToolbar<TData>({
         )}
       </div>
       <div className="flex items-center space-x-2">
-        {table.getSelectedRowModel().rows.length > 0 ? (
+        {table.getSelectedRowModel().rows.length > 0 && (
           <Button
             variant="destructive"
             size="sm"
             className="h-8"
             onClick={() => {
               // Handle bulk delete
+              console.log('Delete selected invoices')
             }}
           >
             <TrashIcon className="mr-2 h-4 w-4" />
             Delete
           </Button>
-        ) : null}
-        <Button
-          className="h-8"
-          size="sm"
-          onClick={() => setIsNewInvoiceOpen(true)}
-        >
-          <PlusCircledIcon className="mr-2 h-4 w-4" />
-          New Invoice
-        </Button>
+        )}
+
         <DataTableViewOptions table={table} />
       </div>
     </div>
