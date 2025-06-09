@@ -26,6 +26,7 @@ This is an educational build designed for developers in the Builder's Lab commun
 | Dashboard Overview   | Metrics cards, recent activity, quick actions              | `/dashboard/page.tsx` |
 | Products Management | Full CRUD operations for products with filtering and sorting | `/dashboard/products/page.tsx` |
 | Clients Management  | Full CRUD operations for clients with table view and actions | `/dashboard/clients/page.tsx` |
+| Invoices Management | Basic table structure with filtering and sorting            | `/dashboard/invoices/page.tsx` |
 | Mock Data Structure  | Types and sample data for products, clients, transactions | `/types/index.ts`, `/dashboard/mock-data.ts` |
 
 ### Products Page Features
@@ -50,13 +51,27 @@ This is an educational build designed for developers in the Builder's Lab commun
 - Accessibility features implemented
 - State persistence between navigation
 
+### Invoices Page Features (In Progress)
+- Table view with pagination
+- Search by invoice number
+- Filter by status (Draft, Pending, Paid, Overdue)
+- Sort by invoice number, client name, total, and due date
+- Bulk selection functionality
+- Color-coded status badges
+- GBP currency formatting
+- Date formatting for due dates
+- Responsive design with modern UI components
+
 ---
 
 ## 🧪 Features To Implement
 
 - [ ] Authentication with Clerk
 - [x] Clients CRUD operations
-- [ ] Invoice generation
+- [ ] Invoice creation modal
+- [ ] Invoice editing
+- [ ] Invoice deletion
+- [ ] PDF generation for invoices
 - [ ] Stock movement tracking
 - [ ] Mobile responsive adjustments
 - [ ] Empty state UIs
